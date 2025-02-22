@@ -1,5 +1,6 @@
 import 'package:eto_ride/model/select_user_model.dart';
 import 'package:eto_ride/model/selectlanguage_model.dart';
+import 'package:eto_ride/view/onboarding_screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -162,7 +163,10 @@ class _SelectUserState extends State<SelectUser> {
                     borderRadius: BorderRadius.circular(43),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OnboardingScreen(),));
+
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
