@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../auth_screen/phoneNumber_screen.dart';
+
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -13,6 +15,23 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   PageController pageController = PageController();
   int index = 0;
+
+  // for changing page
+  void _handleNavigation() {
+    if (index == list.length - 1) {
+      // On last page, navigate to PhoneNumberScreen
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => PhoneNumberScreen())
+      );
+    } else {
+      // Move to next page
+      pageController.nextPage(
+        duration: Duration(milliseconds: 100),
+        curve: Curves.easeIn,
+      );
+    }
+  }
   List<OnboardingModel> list = [
     OnboardingModel(
       text: 'Book your reliable\neto ride in town.',
@@ -109,6 +128,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       onPressed: () {
                         // Navigator.push(context, MaterialPageRoute(builder: (context) => SelectUser(),));
+                        pageController.nextPage(
+                          duration: Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                        );
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -158,6 +181,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             onPressed: () {
                               // Navigator.push(context, MaterialPageRoute(builder: (context) => SelectUser(),));
+                              _handleNavigation();
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(5),
