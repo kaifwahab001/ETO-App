@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    currentindex==0?Pick_up(context):SizedBox(),
+                    currentindex == 0 ? Pick_up(context) : SizedBox(),
                     SizedBox(height: 12),
                     Choose_ride(),
                   ],
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            currentindex==0?'Choose Your Service':'Choose Your ride',
+            currentindex == 0 ? 'Choose Your Service' : 'Choose Your ride',
             style: GoogleFonts.baloo2(
               color: Colors.black,
               fontSize: 18,
@@ -80,9 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Flexible(
                 child: GestureDetector(
                   onTap: () {
-                  setState(() {
-                    currentindex=0;
-                  });
+                    setState(() {
+                      currentindex = 0;
+                    });
                   },
                   child: Container(
                     alignment: Alignment.center,
@@ -90,7 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: ShapeDecoration(
                       color: currentindex == 0 ? null : Color(0xFFF1F5FE),
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1, color: currentindex==0?Color(0xFF1D9B58):Color(0xFFDADADA)),
+                        side: BorderSide(
+                          width: 1,
+                          color:
+                              currentindex == 0
+                                  ? Color(0xFF1D9B58)
+                                  : Color(0xFFDADADA),
+                        ),
                         borderRadius: BorderRadius.circular(7),
                       ),
                     ),
@@ -111,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      currentindex=1;
+                      currentindex = 1;
                     });
                   },
                   child: Container(
@@ -120,7 +126,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: ShapeDecoration(
                       color: currentindex == 1 ? null : Color(0xFFF1F5FE),
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1, color: currentindex==1?Color(0xFF1D9B58):Color(0xFFDADADA)),
+                        side: BorderSide(
+                          width: 1,
+                          color:
+                              currentindex == 1
+                                  ? Color(0xFF1D9B58)
+                                  : Color(0xFFDADADA),
+                        ),
                         borderRadius: BorderRadius.circular(7),
                       ),
                     ),
@@ -225,53 +237,117 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
           ),
-          currentindex==0?Column(
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                width: double.infinity,
-                decoration: BoxDecoration(color: Color(0xFFEFF6FE)),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/main images/money.png'),
-                    SizedBox(width: 12),
-                    Text(
-                      '3  Coupons  Available',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontFamily: 'Baloo 2',
-                        fontWeight: FontWeight.w600,
-                        height: 1.20,
+          currentindex == 0
+              ? Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    width: double.infinity,
+                    decoration: BoxDecoration(color: Color(0xFFEFF6FE)),
+                    child: Row(
+                      children: [
+                        Image.asset('assets/images/main images/money.png'),
+                        SizedBox(width: 12),
+                        Text(
+                          '3  Coupons  Available',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontFamily: 'Baloo 2',
+                            fontWeight: FontWeight.w600,
+                            height: 1.20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    width: double.infinity,
+                    decoration: BoxDecoration(color: Color(0xFFEFF6FE)),
+                    child: Row(
+                      children: [
+                        Image.asset('assets/images/main images/2 money.png'),
+                        SizedBox(width: 12),
+                        Text(
+                          'Payment method',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontFamily: 'Baloo 2',
+                            fontWeight: FontWeight.w600,
+                            height: 1.20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  Text(
+                    'You can pay via cash or UPI for you ride',
+                    style: GoogleFonts.baloo2(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      height: 1.20,
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(double.maxFinite, 57),
+                      backgroundColor: Color(0xFF1D9B58),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(43),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                width: double.infinity,
-                decoration: BoxDecoration(color: Color(0xFFEFF6FE)),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/main images/2 money.png'),
-                    SizedBox(width: 12),
-                    Text(
-                      'Payment method',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontFamily: 'Baloo 2',
-                        fontWeight: FontWeight.w600,
-                        height: 1.20,
+                    onPressed: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => OtpScreen()),
+                      // );
+                    },
+                    child: Text(
+                      'Book your ride',
+                      style: GoogleFonts.baloo2(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        height: 1.06,
                       ),
                     ),
-                  ],
+                  ),
+                ],
+              )
+              : SizedBox(),
+          currentindex == 1 ? SizedBox(height: 15) : SizedBox(),
+          currentindex == 1
+              ? ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(double.maxFinite, 57),
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(43),
+                  ),
                 ),
-              ),
-            ],
-          ):SizedBox(),
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => OtpScreen()),
+                  // );
+                },
+                child: Text(
+                  'Select ride',
+                  style: GoogleFonts.baloo2(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    height: 1.06,
+                  ),
+                ),
+              )
+              : SizedBox(),
         ],
       ),
     );
