@@ -67,6 +67,7 @@ flutter:
   assets:
     - assets/images/spalsh _screen/
     - assets/images/onboarding/
+    - assets/images/main images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

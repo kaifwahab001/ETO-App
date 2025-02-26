@@ -1,4 +1,4 @@
-import 'package:eto_ride/view/spalsh_screen.dart';
+import 'package:eto_ride/view/onboarding_screen/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 void main(){
   runApp(MyApp());

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'onboarding_screen/language_select.dart';
+import 'language_select.dart';
 
 class SpalshScreen extends StatefulWidget {
   const SpalshScreen({super.key});
