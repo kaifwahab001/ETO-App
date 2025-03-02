@@ -1,4 +1,6 @@
+import 'package:eto_ride/services/google_services.dart';
 import 'package:eto_ride/view/auth_screen/otp_screen.dart';
+import 'package:eto_ride/view/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +13,7 @@ class PhoneNumberScreen extends StatefulWidget {
 
 class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
   bool chechbox = false;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -184,8 +187,19 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                         fixedSize: Size(113, 57),
                         side: BorderSide(color: Colors.black),
                       ),
-                      onPressed: () {
+                      onPressed: () async{
+                        try{
+                          final user = await GoogleServices.SigninWithGoogle();
+                          if(user!=null){
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyNavigationbar(),));
+                          }else{
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign in failed Please try again")));
 
+                          }
+                        }catch (e){
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("An error is occur please try again")));
+
+                        }
                       },
                       child: Icon(Icons.g_mobiledata, color: Colors.black, size: 45),
                     ),

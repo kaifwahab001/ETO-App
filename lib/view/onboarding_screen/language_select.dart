@@ -35,7 +35,7 @@ class _LanguageSelectState extends State<LanguageSelect> {
               Upper_part(),
               SizedBox(height: 10),
               Text(
-                "Get prompt and reliable assistance anytime with\nour comprehensive town-wide services.",
+                "Get prompt and reliable assistance anytime with\nour comprehensive town-wide services_screen.",
                 style: GoogleFonts.baloo2(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,

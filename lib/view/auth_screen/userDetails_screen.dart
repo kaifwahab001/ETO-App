@@ -240,7 +240,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                                   onTap: () {
                                     Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                                          MaterialPageRoute(builder: (context) => MyNavigationbar()),
                                         );
                                   },
                                   child: Text(
